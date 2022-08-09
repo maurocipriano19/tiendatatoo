@@ -74,112 +74,42 @@ filtrar();
 
 
 
-/*
-let busqueda = prompt("ingrese el nombre del producto a buscar su precio");
-let producto = productos.find(elemento => elemento.nombre.toLocaleLowerCase() === busqueda.toLocaleLowerCase());
-alert(`El precio del producto ${busqueda} es ${producto.precio}`);
-*/
 
-
-// if (productos.find(elemento => elemento.nombre = !busqueda)) {
-//     alert("el producto no esta disponible") // probé de varias formas y no funciona! :(
-// }
-
-
-//-------------------FILTRADO DE PRECIO-----------------------------------------------------
-
-/*
-//DOM 
-
-let container = document.getElementById("container");
-let filtro = parseInt(prompt("ingrese el precio maximo que esta dispuesto a pagar"));
-
-let filtrados = productos.filter(elemento => elemento.precio <= filtro);
-
-for (const producto of filtrados) {
-    let item = document.createElement("div");
-    item.innerHTML = `<h2>Id: ${producto.id}</h2>
-                     <p>Producto: ${producto.nombre}</p>
-                     <b>Precio: ${producto.precio}</b>
-                     <img src= ${producto.img}>`;
-
-    container.append(item);
-}
-*/
-//--------------------------------------------------------------------------------
-
-
-//event
-let miFormulario = document.getElementById("formulario2");
-miFormulario.addEventListener("submit", validarFormulario);
-
-function validarFormulario(e) {
-    e.preventDefault();
-    let formulario = e.target
-
-    console.log(formulario.children[1].value);
-    console.log(formulario.children[3].value);
-    console.log(formulario.children[5].value);
-
-    //VALIDO EL GENERO
-    function validarRadio() {
-        var s = "no";
-        for (var i = 0; i < document.f1.genero.length; i++) {
-            if (document.f1.genero[i].checked) {
-                console.log(document.f1.genero[i].value);
-                // console.log(formulario.children[1].value);
-                s = "si";
-            }
-        }
-        if (s == "no") {
-            alert("Debe seleccionar algo");
+//VALIDO EL GENERO
+function validarRadio() {
+    for (let i = 0; i < document.f1.genero.length; i++) {
+        if (document.f1.genero[i].checked) {
+            return true;
         }
     }
-
-    validarRadio();
-
+    return false;
 }
-
-
-
 
 
 
 const btn1 = document.getElementById('button');
 
-document.getElementById('formulario2')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
 
-   btn1.value = 'Enviando...';
+let miFormulario = document.getElementById('formulario2').addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (validarRadio()) {
+        btn1.value = 'Enviando...';
 
-   const serviceID = 'default_service';
-   const templateID = 'template_aopuk81';
+        const serviceID = 'default_service';
+        const templateID = 'template_aopuk81';
 
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn1.value = 'Enviar mensaje!';
-      alert('Mensaje enviado correctamente');
-    }, (err) => {
-      btn1.value = 'Enviar mensaje!';
-      alert(JSON.stringify(err));
-    });
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn1.value = 'Enviar mensaje!';
+                alert('Mensaje enviado correctamente');
+            }, (err) => {
+                btn1.value = 'Enviar mensaje!';
+                alert(JSON.stringify(err));
+            });
+    } else {
+        alert("Complete su genero")
+    }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -190,7 +120,7 @@ btn.addEventListener('click', () => {
 
     Swal.fire({
         title: 'Mauro  Cesari',
-        text: 'Desde muy chico me interese por el dibujo. Fomentado por mi madre, avancé en mi técnica y en conocer sobre la historia del arte. Luego comencé la carrera de Arquitectura, la cual me equipo con herramientas  muy útiles en mi búsqueda constante. Hoy en día, impulsado por un aprendizaje académico en Bellas Artes, busco reinventarme y avanzar día a día para lograr madurar y poder compartirlo con todos los que lo necesiten.',
+        text: 'Desde muy chico me interese por el dibujo. Nacido en el barrio de La Paternal y Fomentado por mi madre, avancé en mi técnica y en conocer sobre la historia del arte. Luego comencé la carrera de Diseño, la cual me equipo con herramientas  muy útiles en mi búsqueda constante. Hoy en día, impulsado por un aprendizaje académico en Bellas Artes, busco reinventarme y avanzar día a día para lograr madurar y poder compartirlo con todos los que lo necesiten.',
         imageUrl: './imagenes/gonza.png',
         imageWidth: 350,
         imageHeight: 300,
@@ -204,10 +134,10 @@ btn2.addEventListener('click', () => {
 
     Swal.fire({
         title: 'Maria Sol Romero',
-        text: 'Nací en la ciudad de Salta. ¡ Rodeada de Arte! Desde los Paisajes, la flora y la fauna hasta los proyectos artísticos familiares. Lo que me permitió crecer con mas libertad de expresión. Valorando el medio ambiente que nos rodea y mirando al mundo con menos prejuicio.  A través de mi obra dejo un mensaje, dejo en cada pincelada un pedacito de mi. ',
-        imageUrl: './imagenes/lau.png',
-        imageWidth: 400,
-        imageHeight: 200,
+        text: 'Nací en Ciudad Jardin. ¡ Rodeada de Arte! Desde los Paisajes, la flora y la fauna hasta los proyectos artísticos familiares. Lo que me permitió crecer con mas libertad de expresión. Valorando el medio ambiente que nos rodea y mirando al mundo con menos prejuicio. Perfeccioné mi tecnica en la Unsam. ',
+        imageUrl: './imagenes/maria2.jpg',
+        imageWidth: 300,
+        imageHeight: 400,
         imageAlt: 'Custom image',
     })
 })
@@ -217,7 +147,7 @@ btn3.addEventListener('click', () => {
 
     Swal.fire({
         title: 'Alan Santander',
-        text: 'Nací en la ciudad de Salta. ¡ Rodeada de Arte! Desde los Paisajes, la flora y la fauna hasta los proyectos artísticos familiares. Lo que me permitió crecer con mas libertad de expresión. Valorando el medio ambiente que nos rodea y mirando al mundo con menos prejuicio.  A través de mi obra dejo un mensaje, dejo en cada pincelada un pedacito de mi. ',
+        text: 'Nacído en el Conurbano Bonaerense me nutro de la pasion de la calle. Los motores y autos son mi especialidad. La paciencia y dedicacion que tengo en el arte provienen de alli. Me perfecciono día a día para buscar el mejor trazo posible. ',
         imageUrl: './imagenes/alan.png',
         imageWidth: 400,
         imageHeight: 300,
@@ -230,7 +160,7 @@ btn4.addEventListener('click', () => {
 
     Swal.fire({
         title: 'Hernan Leguizamon',
-        text: 'Nací en la ciudad de Salta. ¡ Rodeada de Arte! Desde los Paisajes, la flora y la fauna hasta los proyectos artísticos familiares. Lo que me permitió crecer con mas libertad de expresión. Valorando el medio ambiente que nos rodea y mirando al mundo con menos prejuicio.  A través de mi obra dejo un mensaje, dejo en cada pincelada un pedacito de mi. ',
+        text: 'Salido desde las entrañas de un terreno, mi arte se nutre en las vivencias que tengo día. Tengo el dibujo en mis venas desde muy chico. Me sigo perfeccionando en la Universidad Nacional de Artes, para buscar el equilibrio perfecto entre lo cotidiano y lo técnico.  ',
         imageUrl: './imagenes/hernan.png',
         imageWidth: 400,
         imageHeight: 200,
@@ -243,10 +173,10 @@ btn5.addEventListener('click', () => {
 
     Swal.fire({
         title: 'Micaela Arenas',
-        text: 'Nací en la ciudad de Salta. ¡ Rodeada de Arte! Desde los Paisajes, la flora y la fauna hasta los proyectos artísticos familiares. Lo que me permitió crecer con mas libertad de expresión. Valorando el medio ambiente que nos rodea y mirando al mundo con menos prejuicio.  A través de mi obra dejo un mensaje, dejo en cada pincelada un pedacito de mi. ',
-        imageUrl: './imagenes/maria2.jpg',
-        imageWidth: 300,
-        imageHeight: 400,
+        text: 'Nací en la ciudad de Pablo Podest. Soy fanatica de la tinta desde muy chica. Tengo un record guiness por mayor contatidad de tatuajes. Valorando el medio ambiente que nos rodea y mirando al mundo con menos prejuicio.  A través de mi obra dejo un mensaje, dejo en cada pincelada un pedacito de mi. ',
+        imageUrl: './imagenes/lau.png',
+        imageWidth: 400,
+        imageHeight: 200,
         imageAlt: 'Custom image',
     })
 })

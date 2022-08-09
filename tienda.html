@@ -140,47 +140,19 @@
 
 
 
-
-  <!-- BUSCADOR DE PRODUCTOS
-  <section class="seccion-3" >
-    <div id="prod">
-       <div id="formulario"> 
-      <h1>Buscador de productos</h1>
-      <input type="text" id="formulario" name="nombre" size="40">
-      <button class="btn btn-info mb-1" id="boton">Buscar</button>
-      </div>  
-  </section>
-
-
- IMAGENES DE PRODUCTOS 
-<div class="grid-container">  
-    <div  id="resultado"></div>  
-</div> -->
-
-
+<!-- Buscador de productos -->
   <section class="seccion-3">
     <div id="prod">
-      <!-- <div id="formulario"> -->
       <h1>Buscador de productos</h1>
       <input type="text" id="formulario" name="nombre" size="40">
       <button class="btn btn-info mb-1" id="boton">Buscar</button>
-
   </section>
 
-
-
-
+<!-- Contenedor de productos -->
   <div class="grid-container" id="resultado"></div>
-  </div>
+  
 
-
-
-
-
-
-
-
-
+<!-- Formulario -->
   <div id="sumate">
     <h2>Sumate a nuestra comunidad completando el siguiente formulario</h2>
   </div>
@@ -188,17 +160,17 @@
 
   <main>
     <form name="f1" id="formulario2">
-      <p>Nombre</p> <input type="text" name="nombre" size="40">
-      <p>Año de nacimiento</p> <input type="number" name="nacido" min="1900">
-      <p>Email</p> <input type="text" name="email" size="40">
+      <p>Nombre</p> <input type="text" name="nombre" size="40" required>
+      <p>Año de nacimiento</p> <input type="number" name="nacido" min="1900" required>
+      <p>Email</p> <input type="text" name="email" size="40" required>
       <div>
-        <input type="radio" name="genero" value="hombre"> Hombre
-        <input type="radio" name="genero" value="mujer"> Mujer
-        <input type="radio" name="genero" value="otro">Otro
+        <input type="radio" name="genero" value="hombre" required> Hombre
+        <input type="radio" name="genero" value="mujer" required> Mujer
+        <input type="radio" name="genero" value="otro" required>Otro
       </div>
       <p>
         <input type="submit" class="btn btn-success" value="Enviar" id="button">
-        <input type="reset"  class="btn btn-success" value="Borrar">
+        <input type="reset" class="btn btn-success" value="Borrar">
       </p>
     </form>
 
@@ -210,6 +182,8 @@
 
   </main>
 
+
+<!-- Nosotros -->
   <section id="nosotros" class="tatuadores">
     <h1>Conoce a nuestros tatuadores</h1>
     <div>
